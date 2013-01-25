@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Inline Activities Test</title>
+		<style>
+			button {
+				font-size: 40px;
+			}
+
+		</style>
+		<script>
+			// XXX: we should not use this to dismiss inline disposition app frame,
+			// see https://bugzilla.mozilla.org/show_bug.cgi?id=789392
+			var reopenApp = function reopen() {
+				navigator.mozApps.getSelf().onsuccess = function getSelfCB(evt) {
+					var app = evt.target.result;
+					app.launch();
+				};
+			};
+
+			var go = function _go() {
+				var a = new MozActivity({
+					name : 'pick',
+					data : {
+						type : 'image/png'
+					}
+				});
+
+				a.onsuccess = function() {
+					reopenApp();
+					document.getElementById('showImg').style.backgroundImage = "url(" + this.result.text + ")";
+					document.getElementById('result').textContent = 'well done';
+				};
+
+				a.onerror = function() {
+					reopenApp();
+					document.getElementById('showImg').style.backgroundImage = "";
+					document.getElementById('result').textContent = '(canceled)';
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<h1>Select Image From another App</h1>
+		<p>
+			<button onclick="go()">
+				Show Images
+			</button>
+		</p>
+		<p>
+			<strong>Received: </strong><span id="result"></span>
+		</p>
+		<div style="width: 256px;height: 192px;" id="showImg"></div>
+	</body>
+</html>

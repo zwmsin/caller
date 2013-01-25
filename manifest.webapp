@@ -1,0 +1,19 @@
+{
+  "name": "Caller",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "chyblog",
+    "url": "http://www.chyblog.com"
+  },
+  "icons": {
+    "120": "/style/icons/Caller.png"
+  },
+  "permissions": [
+    "background",
+    "backgroundservice",
+    "attention",
+    "contacts",
+    "settings",
+    "desktop-notification"
+  ]
+}
