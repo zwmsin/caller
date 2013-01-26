@@ -1,6 +1,6 @@
 {
   "name": "Caller",
-  "launch_path": "/index.html",
+  "launch_path": "./index.html",
   "developer": {
     "name": "zwm",
     "url": "http://zwmsin.github.com"
