@@ -3,7 +3,7 @@
   "launch_path": "/caller/index.html",
   "developer": {
     "name": "zwm",
-    "url": "http://zwmsin.github.com"
+    "url": "http://zwmsin.github.com/caller/"
   },
   "icons": {
     "120": "/caller/style/icons/Caller.png"
